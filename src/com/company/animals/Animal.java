@@ -14,6 +14,9 @@ public class Animal {
     public String getName(){
         return this.name;
     }
+    public double getWeight(){
+        return this.weight;
+    }
     public void feed(){
         this.hungerLevel-=1;
         this.weight+=1;
