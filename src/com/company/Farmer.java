@@ -1,23 +1,16 @@
 package com.company;
 
 import com.company.animals.Animal;
+import com.company.animals.AnimalComparator;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 
 public class Farmer extends Human {
     private ArrayList<Animal> animalArrayList = new ArrayList<Animal>();
     Scanner scanner = new Scanner(System.in);
 
-
     public Farmer(String firstName, String secondName) {
         super(firstName, secondName);
-    }
-
-    public Farmer(String farmerFirstName, String farmerSecondName, int sizeOfFarm) {
-        super();
     }
 
     public void addAnimal(){
@@ -44,9 +37,9 @@ public class Farmer extends Human {
         for (int i = 0; i < animalArrayList.size(); i++) {
             System.out.println((i+1)+". "+ animalArrayList.get(i).getName());
         }
-        }
+    }
     public void sortAnimalsbyName(){
-        Collections.sort(animalArrayList, new Comparator<Animal>() {
+        animalArrayList.sort(new Comparator<Animal>() {
             @Override
             public int compare(Animal o1, Animal o2) {
                 return o1.getName().compareTo(o2.getName());
@@ -56,17 +49,17 @@ public class Farmer extends Human {
         for (int i = 0; i < animalArrayList.size(); i++) {
             System.out.println((i+1)+". "+ animalArrayList.get(i).getName());
         }
-
-    }public void sortAnimalsbyWeight(){
-        Collections.sort(animalArrayList, new Comparator<Animal>() {
-            @Override
-            public int compare(Animal o1, Animal o2) {
-                return Double.compare(o1.getWeight(), o2.getWeight());
-            }
-        });
+    }
+    public void sortAnimalsbyWeight(){
+        List<Animal> weightSortedList = new ArrayList<>(animalArrayList);
+        weightSortedList.sort(new AnimalComparator());
         System.out.println("Sorted by weight: ");
-        for (int i = 0; i < animalArrayList.size(); i++) {
-            System.out.println((i+1)+". "+ animalArrayList.get(i).getName());
+        for (int i = 0; i < weightSortedList.size(); i++) {
+            System.out.println((i+1)+". "+ weightSortedList.get(i).getName());
         }
+    }
+
+    public void showPriceList() {
+
     }
 }

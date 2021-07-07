@@ -1,15 +1,29 @@
 package com.company.animals;
 
-public class Animal {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class Animal implements Comparable<Animal>{
     final private String name;
     final private String species;
-    private int hungerLevel = 12;
+    private double hungerLevel;
     private double weight;
     private int age;
+    private double price;
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getPrice() {
+        return price;
+    }
 
     public Animal(String name, String species, double weight) {
         this.name = name;
         this.species = species;
+        this.weight = weight;
     }
     public String getName(){
         return this.name;
@@ -21,8 +35,18 @@ public class Animal {
         this.hungerLevel-=1;
         this.weight+=1;
     }
+
+    public void setHungerLevel() {
+        this.hungerLevel = 1 + (int)(Math.random() * ((12 - 1) + 1));
+    }
+
     public void checkHungerLevel(){
         System.out.println("Hunger level of "+this.name+": "+this.hungerLevel);
+    }
+
+    @Override
+    public int compareTo(Animal o) {
+        return 0;
     }
 
 }
