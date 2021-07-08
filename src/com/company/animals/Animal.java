@@ -1,8 +1,6 @@
 package com.company.animals;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Animal implements Comparable<Animal>{
     final private String name;
@@ -15,7 +13,6 @@ public class Animal implements Comparable<Animal>{
     public void setPrice(double price) {
         this.price = price;
     }
-
     public double getPrice() {
         return price;
     }
