@@ -58,8 +58,28 @@ public class Farmer extends Human {
             System.out.println((i+1)+". "+ weightSortedList.get(i).getName());
         }
     }
+    public void showAnimalsSpecies(){
+        Set<String> animalSpecies = new HashSet<>();
+        for (Animal animal : animalArrayList) {
+            animalSpecies.add(animal.getSpecies());
+        }
+        int i = 1;
+        for (String animalSpecy : animalSpecies) {
+            System.out.println(i+". "+animalSpecy);
+            i++;
+        }
+        System.out.println("\nWhich species you want to see?");
+        int x = (scanner.nextInt()-1);
+        String[] species = animalSpecies.toArray(new String[animalSpecies.size()]);
+        i = 1;
+        for (Animal animal : animalArrayList) {
+            if (animal.getSpecies().equals(species[x])) {
+                System.out.println(i+". "+animal.getName());
+                i++;
+            }
+        }
+    }
 
     public void showPriceList() {
-
     }
 }

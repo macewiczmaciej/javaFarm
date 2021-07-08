@@ -27,6 +27,7 @@ public class Main {
             System.out.println("4. Sort animals by name");
             System.out.println("5. Sort animals by weight");
             System.out.println("6. Check price list of animals");
+            System.out.println("7. Show animals by species");
             System.out.println("0. Quit\n");
             System.out.println("What you want to do: ");
             choice = scanner.nextInt();
@@ -38,6 +39,7 @@ public class Main {
                 case 4 -> farmer.sortAnimalsbyName();
                 case 5 -> farmer.sortAnimalsbyWeight();
                 case 6 -> farmer.showPriceList();
+                case 7 -> farmer.showAnimalsSpecies();
 
                 default -> throw new IllegalStateException("Unexpected value: " + choice);
             }
