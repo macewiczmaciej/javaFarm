@@ -18,6 +18,7 @@ public class Farmer extends Human {
         String name = scanner.next();
         System.out.println("Species: ");
         String species = scanner.next();
+
         System.out.println("Weight: ");
         double weight = scanner.nextDouble();
         Animal animal = new Animal(name,species,weight);

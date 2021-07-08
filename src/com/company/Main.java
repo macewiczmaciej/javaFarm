@@ -17,7 +17,7 @@ public class Main {
         Farmer farmer = new Farmer(farmerFirstName,farmerSecondName);
 
         System.out.println(farmer.firstName+" "+farmer.secondName+" welcome in myFarm\n");
-        System.out.println("You have: "+farmer.getCash()+"PLN");
+        System.out.println("You have: $"+farmer.getCash());
 
         int choice = -1;
         do{
@@ -28,7 +28,9 @@ public class Main {
             System.out.println("5. Sort animals by weight");
             System.out.println("6. Check price list of animals");
             System.out.println("7. Show animals by species");
+            System.out.println("8. Earn money!");
             System.out.println("0. Quit\n");
+            System.out.println(farmer.getCash());
             System.out.println("What you want to do: ");
             choice = scanner.nextInt();
             switch (choice) {
@@ -40,6 +42,7 @@ public class Main {
                 case 5 -> farmer.sortAnimalsbyWeight();
                 case 6 -> farmer.showPriceList();
                 case 7 -> farmer.showAnimalsSpecies();
+                case 8 -> farmer.setCash(farmer.getCash()+Quest.earnMoney());
 
                 default -> throw new IllegalStateException("Unexpected value: " + choice);
             }
