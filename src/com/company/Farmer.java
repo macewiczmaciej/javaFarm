@@ -1,8 +1,6 @@
 package com.company;
 
-import com.company.animals.Animal;
-import com.company.animals.AnimalComparator;
-import com.company.animals.Cow;
+import com.company.animals.*;
 
 import java.util.*;
 
@@ -18,11 +16,22 @@ public class Farmer extends Human {
         System.out.println("Name: ");
         String name = scanner.next();
         System.out.println("Species: ");
-        String species = scanner.next();
+        String species = scanner.next().toLowerCase(Locale.ROOT);
         System.out.println("Weight: ");
         double weight = scanner.nextDouble();
-        Animal animal = new Animal(name,species,weight);
-        if(animal.getPrice()>getCash()) {
+        Animal animal = new Animal(name,weight);
+        if(species.equals("cow")){
+            animal.setSpecies("cow");
+            animal.setPrice(1500.0);
+        }else if(species.equals("pig")){
+            animal.setSpecies("pig");
+            animal.setPrice(500.0);
+        }else if(species.equals("cat")){
+            animal.setSpecies("cat");
+            animal.setPrice(1000.0);
+        }else{
+            System.out.println("You cannot have "+species+" on your farm");
+        }if(animal.getPrice()>getCash()) {
             System.out.println("You have no money!");
         }else{
             animalArrayList.add(animal);
@@ -112,5 +121,8 @@ public class Farmer extends Human {
     }
 
     public void showPriceList() {
+        System.out.println("Cat: $1000");
+        System.out.println("Cow: $1500");
+        System.out.println("Pig: $500");
     }
 }

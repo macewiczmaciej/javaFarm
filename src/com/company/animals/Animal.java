@@ -4,10 +4,9 @@ import java.util.*;
 
 public class Animal implements Comparable<Animal>{
     final private String name;
-    final private String species;
+    private String species;
     private double hungerLevel;
     private double weight;
-    private int age;
     private double price;
 
     public void setPrice(double price) {
@@ -16,13 +15,15 @@ public class Animal implements Comparable<Animal>{
     public double getPrice() {
         return price;
     }
+    public void setSpecies(String species){
+        this.species = species;
+    }
     public String getSpecies(){
         return this.species;
     }
 
-    public Animal(String name, String species, double weight) {
+    public Animal(String name, double weight) {
         this.name = name;
-        this.species = species;
         this.weight = weight;
     }
     public String getName(){

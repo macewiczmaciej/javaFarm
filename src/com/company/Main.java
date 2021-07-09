@@ -12,7 +12,7 @@ public class Main {
 
         System.out.println("Hi, what is your name? ");
         String farmerFirstName = scanner.next();
-        System.out.println("second name? ");
+        System.out.println("Second name? ");
         String farmerSecondName = scanner.next();
         Farmer farmer = new Farmer(farmerFirstName,farmerSecondName);
 
@@ -46,7 +46,7 @@ public class Main {
                 case 8 -> farmer.setCash(farmer.getCash()+Quest.earnMoney());
                 case 9 -> System.out.println("Your balance: $"+farmer.getCash());
 
-                default -> throw new IllegalStateException("Unexpected value: " + choice);
+                default -> System.out.println("Type number from 0 to 9 :)");
             }
         }
         while(choice != 0);
